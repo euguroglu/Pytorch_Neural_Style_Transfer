@@ -35,7 +35,7 @@ def index():
         transform = style_transform()
 
         transformer = TransformerNet().to(device)
-        transformer.load_state_dict(torch.load("static/model/mosaic_10000.pth"))
+        transformer.load_state_dict(torch.load("static/model/mosaic_10000.pth", map_location=torch.device('cpu')))
         transformer.eval()
     # Prepare input
         image_tensor = Variable(transform(Image.open(style_img))).to(device)
