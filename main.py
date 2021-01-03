@@ -29,7 +29,8 @@ def index():
         f.save(path)
 
         style_img = path
-
+        a = int(Image.open(style_img).size[0])
+        b = int(Image.open(style_img).size[1])
         device = torch.device("cpu")
 
         transform = style_transform()
@@ -38,8 +39,12 @@ def index():
         transformer.load_state_dict(torch.load("static/model/mosaic_10000.pth", map_location=torch.device('cpu')))
         transformer.eval()
     # Prepare input
-        image_tensor = Variable(transform(Image.open(style_img))).to(device)
-        image_tensor = image_tensor.unsqueeze(0)
+        if a*b < 800000:
+            image_tensor = Variable(transform(Image.open(style_img))).to(device)
+            image_tensor = image_tensor.unsqueeze(0)
+        else:
+            image_tensor = Variable(transform(Image.open(style_img).resize((int(a/2),int(b/2))))).to(device)
+            image_tensor = image_tensor.unsqueeze(0)
 
         with torch.no_grad():
             stylized_image = denormalize(transformer(image_tensor)).cpu()
