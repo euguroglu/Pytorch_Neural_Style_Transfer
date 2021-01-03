@@ -1,0 +1,209 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C8E7J6VS13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C8E7J6VS13');
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enes Uğuroğlu || Style Transfer</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='fontawesome-free-5.12.1-web/css/all.min.css')}}"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}" />
+  </head>
+
+  <body>
+    <!-- navbar -->
+    <nav class="nav" id="nav">
+      <div class="nav-center">
+        <!-- nav header -->
+        <div class="nav-header">
+          <img src="{{url_for('static',filename='images/logo3.svg')}}" class="nav-logo" alt="" />
+          <button class="nav-btn" id="nav-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <!-- nav links -->
+        <ul class="nav-links">
+          <li><a href="https://www.enesuguroglu.com/">home</a></li>
+          <li><a href="https://www.enesuguroglu.com/about">about</a></li>
+          <li><a href="https://www.enesuguroglu.com/projects">projects</a></li>
+          <li><a href="https://www.enesuguroglu.com/contact">contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- end of navbar -->
+    <!-- sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div>
+        <button id="close-btn" class="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+        <ul class="sidebar-links">
+          <li><a href="https://www.enesuguroglu.com/">home</a></li>
+          <li><a href="https://www.enesuguroglu.com/about">about</a></li>
+          <li><a href="https://www.enesuguroglu.com/projects">projects</a></li>
+          <li><a href="https://www.enesuguroglu.com/contact">contact</a></li>
+        </ul>
+        <ul class="social-icons">
+          <!-- single item -->
+          <li>
+            <a href="https://www.instagram.com/enesuguroglu/" class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+          <!-- end of single item -->
+          <!-- single item -->
+          <li>
+            <a href="https://www.linkedin.com/in/enes-u%C4%9Furo%C4%9Flu-79827215a/" class="social-icon">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <!-- end of single item -->
+          <!-- single item -->
+          <li>
+            <a href="https://github.com/euguroglu" class="social-icon">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <!-- end of single item -->
+          <!-- single item -->
+          <li>
+            <a href="https://www.kaggle.com/enesugurolu" class="social-icon">
+              <i class="fab fa-kaggle"></i>
+            </a>
+          </li>
+          <!-- end of single item -->
+          <!-- single item -->
+          <li>
+            <a href="https://www.facebook.com/enes.uguroglu" class="social-icon">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+          <!-- end of single item -->
+        </ul>
+      </div>
+    </aside>
+    <!-- end of sidebar -->
+    <section class="section single-page">
+      <!-- section title -->
+      <div class="section-title">
+        <h1>Neural Style Transfer</h1>
+        <div class="underline"></div>
+      </div>
+      <!--end of section title -->
+
+    <div class="section-center page-info">
+
+      <div class="container">
+        <br>
+        <form  action="#" method="POST" enctype="multipart/form-data">
+          <label for="upload">Upload Your Image</label> 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="file" id="upload" name="image" required="True" class="btn btn-outline-primary">
+          <br>
+          <br>
+
+          <br>
+          <br>
+          <div class="container" align="center">
+
+
+          <input type="submit"value="Draw" class="btn btn-outline-primary">
+          <br>
+          <br>
+          <div align="center">
+
+            </div>
+          </div>
+        </form>
+
+
+      </div>
+
+      {% if fileupload %}
+
+
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6" id="predict">
+                  <!-- <img src="{{ url_for('static',filename='upload/')}}{{ img_name }}" > -->
+              </div>
+              <div class="col-md-6" id="predict">
+                  <img src="{{ url_for('static',filename='predict/')}}{{img_name}}"  >
+              </div>
+          </div>
+      </div>
+    </div>
+      {% endif %}
+  </section>
+
+
+  <style>
+    #predict{
+      border:solid;
+      color:#002f4d;
+      text-align:center;
+    }
+  </style>
+
+
+  <!-- ############## -->
+  <!-- ############## -->
+
+  <!-- footer -->
+  <footer class="footer">
+    <ul class="social-icons">
+      <!-- single item -->
+      <li>
+        <a href="https://www.instagram.com/enesuguroglu/"  class="social-icon">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      <!-- end of single item -->
+      <!-- single item -->
+      <li>
+        <a href="https://www.linkedin.com/in/enes-u%C4%9Furo%C4%9Flu-79827215a/" class="social-icon">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+      <!-- end of single item -->
+      <!-- single item -->
+      <li>
+        <a href="https://github.com/euguroglu"class="social-icon">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      <!-- end of single item -->
+      <!-- single item -->
+      <li>
+        <a href="https://www.kaggle.com/enesugurolu" class="social-icon">
+          <i class="fab fa-kaggle"></i>
+        </a>
+      </li>
+      <!-- end of single item -->
+      <!-- single item -->
+      <li>
+        <a href="https://www.facebook.com/enes.uguroglu" class="social-icon">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+      <!-- end of single item -->
+    </ul>
+
+    <p>&copy; <span id="date"></span> Enes Uğuroğlu all rights reserved</p>
+  </footer>
+  <script src="{{url_for('static',filename='js/app.js')}}"></script>
+</body>
+</html>
+
+</html>
