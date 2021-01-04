@@ -42,6 +42,9 @@ def index():
         if a*b < 800000:
             image_tensor = Variable(transform(Image.open(style_img).convert("RGB"))).to(device)
             image_tensor = image_tensor.unsqueeze(0)
+        elif 800000 < a*b < 1960000:
+            image_tensor = Variable(transform(Image.open(style_img).convert("RGB").resize((int(a*2/3),int(b*2/3))))).to(device)
+            image_tensor = image_tensor.unsqueeze(0)
         else:
             image_tensor = Variable(transform(Image.open(style_img).convert("RGB").resize((int(a/2),int(b/2))))).to(device)
             image_tensor = image_tensor.unsqueeze(0)
