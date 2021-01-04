@@ -94,6 +94,7 @@
         </ul>
       </div>
     </aside>
+
     <!-- end of sidebar -->
     <section class="section single-page">
       <!-- section title -->
@@ -112,7 +113,29 @@
           <input type="file" id="upload" name="image" required="True" class="btn btn-outline-primary">
           <br>
           <br>
-
+<!-- radio button to select style image -->
+        {% if not fileupload %}
+              <div style="padding: 30px;">
+                <div class="neural_radio">
+                <label>
+                  <input type="radio" name="style" value="mosaic">
+                  <img src="{{url_for('static',filename='images/mosaic.jpg')}}" alt="" style=width:200px;height:200px;>
+                </label>
+              </div>
+              <div class="neural_radio">
+                <label>
+                  <input type="radio" name="style" value="mona">
+                  <img src="{{url_for('static',filename='images/mona.jpg')}}" alt="" style=width:200px;height:200px;>
+                </label>
+              </div>
+              <div class="neural_radio">
+                <label>
+                  <input type="radio" name="style" value="starry">
+                  <img src="{{url_for('static',filename='images/starry_night.jpg')}}" alt="" style=width:200px;height:200px;>
+                </label>
+              </div>
+              </div>
+              {% endif %}
           <br>
           <br>
           <div class="container" align="center">
@@ -129,6 +152,7 @@
 
 
       </div>
+
 
       {% if fileupload %}
 

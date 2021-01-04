@@ -36,8 +36,18 @@ def index():
         transform = style_transform()
 
         transformer = TransformerNet().to(device)
-        transformer.load_state_dict(torch.load("static/model/mosaic_10000.pth", map_location=torch.device('cpu')))
-        transformer.eval()
+        model = request.form['style']
+
+        if model == 'mosaic':
+            transformer.load_state_dict(torch.load("static/model/mosaic_10000.pth", map_location=torch.device('cpu')))
+            transformer.eval()
+        elif model == 'mona':
+            transformer.load_state_dict(torch.load("static/model/mona_24000.pth", map_location=torch.device('cpu')))
+            transformer.eval()
+        elif model == 'starry':
+            transformer.load_state_dict(torch.load("static/model/starry_night_10000.pth", map_location=torch.device('cpu')))
+            transformer.eval()
+        
     # Prepare input
         if a*b < 800000:
             image_tensor = Variable(transform(Image.open(style_img).convert("RGB"))).to(device)
