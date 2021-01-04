@@ -40,20 +40,20 @@ def index():
         transformer.eval()
     # Prepare input
         if a*b < 800000:
-            image_tensor = Variable(transform(Image.open(style_img))).to(device)
+            image_tensor = Variable(transform(Image.open(style_img).convert("RGB"))).to(device)
             image_tensor = image_tensor.unsqueeze(0)
         else:
-            image_tensor = Variable(transform(Image.open(style_img).resize((int(a/2),int(b/2))))).to(device)
+            image_tensor = Variable(transform(Image.open(style_img).convert("RGB").resize((int(a/2),int(b/2))))).to(device)
             image_tensor = image_tensor.unsqueeze(0)
 
         with torch.no_grad():
             stylized_image = denormalize(transformer(image_tensor)).cpu()
 
-        save_image(stylized_image,"./static/predict/{}".format(filename))
+        save_image(stylized_image,"./static/predict/result_{}".format(filename))
         # stylized_image.save("./static/predict/{}".format(filename))
         #prediction pass to pipeline model
 
-        return render_template("index.html",fileupload=True,img_name=filename)
+        return render_template("index.html",fileupload=True,img_name="result_"+filename)
     return render_template("index.html",fileupload=False)
 
 
