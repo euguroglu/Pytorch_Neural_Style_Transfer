@@ -41,13 +41,15 @@ def index():
         if model == 'mosaic':
             transformer.load_state_dict(torch.load("static/model/mosaic_10000.pth", map_location=torch.device('cpu')))
             transformer.eval()
+            filename="mosaic{}".format(filename)
         elif model == 'mona':
             transformer.load_state_dict(torch.load("static/model/mona_24000.pth", map_location=torch.device('cpu')))
             transformer.eval()
+            filename="mona{}".format(filename)
         elif model == 'starry':
             transformer.load_state_dict(torch.load("static/model/starry_night_10000.pth", map_location=torch.device('cpu')))
             transformer.eval()
-        
+            filename="starry{}".format(filename)
     # Prepare input
         if a*b < 800000:
             image_tensor = Variable(transform(Image.open(style_img).convert("RGB"))).to(device)
