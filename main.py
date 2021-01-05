@@ -1,4 +1,4 @@
-from flask import Flask, render_template,Response,request,jsonify
+from flask import Flask, render_template,Response,request,jsonify, send_from_directory
 from flask import redirect,url_for
 import os
 from PIL import Image
@@ -76,4 +76,4 @@ def index():
 if __name__ == '__main__':
 
     # app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
-    app.run(debug=True)
+    app.run()
